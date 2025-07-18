@@ -4,13 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="src/static/index.css">
+    <!--Fontes-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Public+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
     <title>Bela Flor - Login</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">     
 </head>
-<body>
+<body class="bg-[#FDF3EB]">
     <div>
-        <div class="h-full"><img src="src/mideas/bg-login.jpg" alt=""></div>
+        <div class="w-full h-[500px] bg-[url('src/mideas/bg-login.jpg')] bg-cover bg-center z-0">
+            <div class="w-full h-[500px] bg-black bg-opacity-20 z-10 flex flex-col items-center justify-center">
+                <h1 class="font-['Pacifico'] text-white text-[36px]">Olá, seja bem-vindo(a)!</h1>
+                <p class="font-['Inter'] text-white text-[25px] pt-5">Vamos começar pelo seu Login!</p>
+            </div>  
+        </div>
+
+        <div class="w-[80%] h-[300px] bg-white m-auto absolute top-[53%] left-[40px] rounded-2xl">
+            <div class="grid">
+                <div>
+                    <i class="ri-google-fill"></i>
+                    <p>Google</p>
+                </div>
+                <div>
+                    <i class="ri-facebook-circle-fill"></i>
+                    <p>Facebook</p>
+                </div>
+            </div>
+
+            <div class="">
+                <hr>
+                <p>Ou faça login com</p>
+                <hr>
+            </div>
+
+            <div>
+                <input type="email" name="email" id="email">
+                <input type="password" name="password" id="password">
+                <i class="ri-eye-off-line"></i>
+                <input type="button" value="Login">
+            </div>
+        </div>
     </div>
 </body>
 </html>
