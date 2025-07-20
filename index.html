@@ -19,7 +19,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">     
 </head>
-<body class="bg-[#FDF3EB] pb-60">
+<body class="bg-[#FDF3EB] pb-72">
 
     <div>
         <!--Imagem e título-->
@@ -31,16 +31,16 @@
         </div>
 
         <!--Login-->
-            <div class="w-[80%] h-[360px] bg-white m-auto absolute top-[53%] left-[40px] rounded-2xl">
+            <div class="w-[80%] h-[400px] bg-white m-auto absolute top-[53%] left-[40px] rounded-2xl">
             
                 <!--Card google facebook-->
                 <div class="grid grid-cols-2 place-items-center items-center pt-5 pb-8">
-                    <div class="text-center border-2 py-2 px-8 rounded-lg cursor-pointer">
-                        <i class="ri-google-fill text-xl"></i>
+                    <div class="text-center border-2 py-3.5 px-8 rounded-lg cursor-pointer">
+                        <img src="src/mideas/google-logo.png" alt="google logo" class="w-[20px] h-[20px] ml-3">
                         <p class="text-[#2F1D1A] font-semibold">Google</p>
                     </div>
                     <div class="text-center border-2 py-2 px-6 mr-4 rounded-lg cursor-pointer">
-                        <i class="ri-facebook-circle-fill text-blue-600 text-xl"></i>
+                        <i class="ri-facebook-circle-fill text-blue-600 text-2xl"></i>
                         <p class="text-[#2F1D1A] font-semibold">Facebook</p>
                     </div>
                 </div>
@@ -54,7 +54,13 @@
                     <input type="email" name="email" id="email" placeholder="E-mail" class="border-2 rounded-lg w-[90%] pl-3 h-[35px] focus:outline-none focus:ring-2 focus:ring-[#C9B9B0]">
                     <input type="password" name="password" id="password" placeholder="Senha" class="border-2 rounded-lg w-[90%] pl-3 h-[35px] focus:outline-none focus:ring-2 focus:ring-[#C9B9B0]">
                     <i class="ri-eye-off-line absolute top-[226px] left-[270px] text-xl font-semibold cursor-pointer"></i>
-                    <input type="button" value="Login" class="rounded-[40px] px-20 py-2 mt-3 bg-[#2F1D1A] hover:bg-[#C9B9B0] text-[#C9B9B0] hover:text-[#2F1D1A] hover:transform hover:scale-110 transition duration-500 cursor-pointer">
+
+                    <div class="flex text-[12px] justify-around w-full text-[#2F1D1A] mb-3">
+                        <p>Cadatre-se</p>
+                        <p>Esqueceu a senha?</p>
+                    </div>
+
+                    <a href="./home.html"><button class="rounded-[40px] px-20 py-2 mt-3 bg-[#2F1D1A] hover:bg-[#C9B9B0] text-[#C9B9B0] hover:text-[#2F1D1A] hover:transform hover:scale-110 transition duration-500 cursor-pointer">Login</button></a>
                 </div>
             </div>
     </div>
