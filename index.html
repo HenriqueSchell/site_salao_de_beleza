@@ -17,30 +17,55 @@
 
     <title>Bela Flor - Login</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">     
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script>
+        function handleCredentialResponse(response) {
+          const token = response.credential;
+          console.log("Token JWT do Google:", token);
+          // Decodifica o token (apenas visual)
+          const base64Url = token.split('.')[1];
+          const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+          const decodedPayload = JSON.parse(atob(base64));
+          console.log("Informações do usuário:", decodedPayload);
+          // Exibe nome na tela
+          document.getElementById("resultado").innerText = "Olá, " + decodedPayload.name;
+        }
+        window.onload = function () {
+          google.accounts.id.initialize({
+            client_id: "74259416029-bt62h98gfps254ieu0pg1u94s9l1flko.apps.googleusercontent.com",
+            callback: handleCredentialResponse
+          });
+          google.accounts.id.renderButton(
+            document.getElementById("botao-google"),
+            { theme: "outline", size: "large" }
+          );
+        }
+    </script>
 </head>
-<body class="bg-[#FDF3EB] pb-72">
+<body class="">
 
-    <div>
+    <main class="md:grid md:grid-cols-[2fr_1fr]">
         <!--Imagem e título-->
-        <div class="w-full h-[500px] bg-[url('src/mideas/bg-login.jpg')] bg-cover bg-center z-0">
-            <div class="w-full h-[500px] bg-black bg-opacity-20 z-10 flex flex-col items-center justify-center">
+        <div class="w-full md:h-screen bg-[url('src/mideas/bg-login.jpg')] bg-cover bg-center z-0">
+            <div class="w-full h-screen bg-black bg-opacity-20 z-10 flex flex-col items-center justify-center text-center">
                 <h1 class="font-['Pacifico'] text-white text-[36px]">Olá, seja bem-vindo(a)!</h1>
                 <p class="font-['Inter'] text-white text-[25px] pt-5">Vamos começar pelo seu Login!</p>
             </div>  
         </div>
 
         <!--Login-->
-            <div class="w-[80%] h-[400px] bg-white m-auto absolute top-[53%] left-[40px] rounded-2xl">
+            <div class="w-[80%] h-[400px] bg-white m-auto  top-[53%] left-[40px] rounded-2xl">
             
                 <!--Card google facebook-->
-                <div class="grid grid-cols-2 place-items-center items-center pt-5 pb-8">
-                    <div class="text-center border-2 py-3.5 px-8 rounded-lg cursor-pointer">
-                        <img src="src/mideas/google-logo.png" alt="google logo" class="w-[20px] h-[20px] ml-3">
+                <div class="grid grid-cols-2 pt-5 pb-8 gap-5 items-center">
+                    <div class="text-center border-2 rounded-lg cursor-pointer flex flex-col items-center justify-center py-2 px-4">
+                        <!-- <img id="botao-google" src="src/mideas/google-logo.png" alt="google logo" class="w-[30px] h-[30px]"> -->
+                         <div id="botao-google"></div>
                         <p class="text-[#2F1D1A] font-semibold">Google</p>
                     </div>
-                    <div class="text-center border-2 py-2 px-6 mr-4 rounded-lg cursor-pointer">
-                        <i class="ri-facebook-circle-fill text-blue-600 text-2xl"></i>
+                    <div class="text-center border-2 flex flex-col items-center justify-center py-2 px-4 rounded-lg cursor-pointer">
+                        <img src="src/mideas/logo-facebook.png" alt="facebook logo" class="w-[30px] h-[30px]">
                         <p class="text-[#2F1D1A] font-semibold">Facebook</p>
                     </div>
                 </div>
@@ -50,19 +75,26 @@
                     <p class="font-['Inter'] pl-3 text-base text-[#2F1D1A]">Ou faça login com</p>
                     <div class="w-[60px] bg-[#2f1d1a77] h-[1px] ml-3 mr-4"></div>
                 </div>
-                <div class="mt-5 flex flex-col items-center gap-5">
+                <div class="mt-5 flex flex-col items-center gap-5 w-[90%] max-w-md">
                     <input type="email" name="email" id="email" placeholder="E-mail" class="border-2 rounded-lg w-[90%] pl-3 h-[35px] focus:outline-none focus:ring-2 focus:ring-[#C9B9B0]">
-                    <input type="password" name="password" id="password" placeholder="Senha" class="border-2 rounded-lg w-[90%] pl-3 h-[35px] focus:outline-none focus:ring-2 focus:ring-[#C9B9B0]">
-                    <i class="ri-eye-off-line absolute top-[226px] left-[270px] text-xl font-semibold cursor-pointer"></i>
+               
+                    <div class="relative w-[90%] max-w-md">
+                        <input type="password" name="password" id="password-field" placeholder="Senha" class="border-2 rounded-lg w-full pl-3 h-[35px] focus:outline-none focus:ring-2 focus:ring-[#C9B9B0]">
+                        <div id="btn-password"><i class="ri-eye-off-line text-xl font-semibold cursor-pointer absolute right-3 top-1/2 -translate-y-1/2 text-gray-600"></i></div>
+                    </div>
+           
 
-                    <div class="flex text-[12px] justify-around w-full text-[#2F1D1A] mb-3">
-                        <p>Cadatre-se</p>
-                        <p>Esqueceu a senha?</p>
+                    <div class="flex text-[12px] justify-around w-full text-[#2F1D1A] mb-2">
+                        <a href="#" class="hover:underline text-[#2F1D1A]">Cadastrar novo usuário</a>
+                        <a href="#" class="hover:underline text-[#2F1D1A]">Esqueceu a senha?</a>
                     </div>
 
-                    <a href="./home.html"><button class="rounded-[40px] px-20 py-2 mt-3 bg-[#2F1D1A] hover:bg-[#C9B9B0] text-[#C9B9B0] hover:text-[#2F1D1A] hover:transform hover:scale-110 transition duration-500 cursor-pointer">Login</button></a>
+                    <a href="./home.html"><button class="rounded-[40px] px-20 py-2 bg-[#2F1D1A] hover:bg-[#C9B9B0] text-[#C9B9B0] hover:text-[#2F1D1A] hover:transform hover:scale-110 transition duration-500 cursor-pointer md:mt-7">Login</button></a>
                 </div>
             </div>
-    </div>
+        </div>
+    </main>
+
+    <script src="src/static/login.js"></script>
 </body>
 </html>
