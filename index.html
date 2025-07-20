@@ -19,29 +19,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <script src="https://accounts.google.com/gsi/client" async defer></script>
-    <script>
-        function handleCredentialResponse(response) {
-          const token = response.credential;
-          console.log("Token JWT do Google:", token);
-          // Decodifica o token (apenas visual)
-          const base64Url = token.split('.')[1];
-          const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-          const decodedPayload = JSON.parse(atob(base64));
-          console.log("Informações do usuário:", decodedPayload);
-          // Exibe nome na tela
-          document.getElementById("resultado").innerText = "Olá, " + decodedPayload.name;
-        }
-        window.onload = function () {
-          google.accounts.id.initialize({
-            client_id: "74259416029-bt62h98gfps254ieu0pg1u94s9l1flko.apps.googleusercontent.com",
-            callback: handleCredentialResponse
-          });
-          google.accounts.id.renderButton(
-            document.getElementById("botao-google"),
-            { theme: "outline", size: "large" }
-          );
-        }
-    </script>
 </head>
 <body class="">
 
