@@ -1,0 +1,3 @@
+[submodule "site_salao_de_beleza"]
+	path = site_salao_de_beleza
+	url = https://github.com/HenriqueSchell/site_salao_de_beleza.git
