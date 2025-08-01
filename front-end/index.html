@@ -21,36 +21,31 @@
     <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 <body class="">
-
     <main class="md:grid md:grid-cols-[2fr_1fr]">
         <!--Imagem e título-->
-        <div class="w-full md:h-screen bg-[url('../mideas/bg-login.jpg')] bg-cover bg-center z-0">
+        <div class="w-full md:h-screen bg-[url('mideas/bg-login.jpg')] bg-cover bg-center z-0">
             <div class="w-full h-screen bg-black bg-opacity-20 z-10 flex flex-col items-center justify-center text-center">
                 <h1 class="font-['Pacifico'] text-white text-[36px]">Olá, seja bem-vindo(a)!</h1>
-                <p class="font-['Inter'] text-white text-[25px] pt-5">Vamos começar pelo seu Login!</p>
+                <p id="title"  class="font-['Inter'] text-white text-[25px] pt-5">Vamos começar pelo seu Login!</p>
             </div>  
         </div>
 
         <!--Login-->
-            <div class="w-[80%] h-[400px] bg-white m-auto  top-[53%] left-[40px] rounded-2xl">
+            <div id="loginWindow" class="w-[80%] h-[400px] bg-white m-auto  top-[53%] left-[40px] rounded-2xl">
             
                 <!--Card google facebook-->
                 <div class="grid grid-cols-2 pt-5 pb-8 gap-5 items-center">
+
                     <div class="text-center border-2 rounded-lg cursor-pointer flex flex-col items-center justify-center py-2 px-4">
-                        <img src="../mideas/google-logo.png" alt="google logo" class="w-[30px] h-[30px]">
-                        <p class="text-[#2F1D1A] font-semibold">Google</p>
-                        <div id="g_id_onload"
-                            data-client_id="74259416029-bt62h98gfps254ieu0pg1u94s9l1flko.apps.googleusercontent.com"
-                            data-context="signin"
-                            data-callback="handleCredentialResponse"
-                            data-auto_prompt="false">
-                        </div>
-                        
+                        <img src="mideas/google-logo.png" alt="google logo" class="w-[30px] h-[30px]">
+                        <p class="text-[#2F1D1A] font-semibold">Google</p> 
                     </div>
+
                     <div class="text-center border-2 flex flex-col items-center justify-center py-2 px-4 rounded-lg cursor-pointer">
-                        <img src="../mideas/logo-facebook.png" alt="facebook logo" class="w-[30px] h-[30px]">
+                        <img src="mideas/logo-facebook.png" alt="facebook logo" class="w-[30px] h-[30px]">
                         <p class="text-[#2F1D1A] font-semibold">Facebook</p>
                     </div>
+
                 </div>
                 <!--Login formulários-->
                 <div class="flex items-center justify-center">
@@ -59,12 +54,12 @@
                     <div class="w-[60px] bg-[#2f1d1a77] h-[1px] ml-3 mr-4"></div>
                 </div>
                 <div class="mt-5 flex flex-col items-center w-[90%] max-w-md">
-                    <input type="email" name="email" id="email" placeholder="E-mail" class="border-2 rounded-lg w-[90%] pl-3 h-[35px] focus:outline-none focus:ring-2 focus:ring-[#C9B9B0]">
-                    <p id="errorEmail" class="text-[12px] text-red-600 hidden">Erro! O E-mail precisa conter o @</p>
-
-
-                    <div class="relative w-[90%] max-w-md mt-5 text-center">
-                        <input type="password" name="password" id="password-field" placeholder="Senha" class="border-2 rounded-lg w-full pl-3 h-[35px] focus:outline-none focus:ring-2 focus:ring-[#C9B9B0]">
+                
+                        <input type="email" name="email" id="email" placeholder="E-mail" class="border-2 rounded-lg w-[90%] pl-3 h-[35px] focus:outline-none focus:ring-2 focus:ring-[#C9B9B0]">
+                        <p id="errorEmail" class="text-[12px] text-red-600 hidden">Erro! O E-mail precisa conter o @</p>
+                        <div class="relative w-[90%] max-w-md mt-5 text-center">
+                            <input type="password" name="password" id="password-field" placeholder="Senha" class="border-2 rounded-lg w-full pl-3 h-[35px] focus:outline-none focus:ring-2 focus:ring-[#C9B9B0]">
+                 
                         <div id="btn-password"><i class="ri-eye-off-line text-xl font-semibold cursor-pointer absolute right-3 top-1/2 -translate-y-1/2 text-gray-600"></i></div>
                     </div>
                     <div class="text-center">
@@ -72,16 +67,53 @@
                         <p id="errorPasswordSize" class="text-[12px] text-red-600 hidden pt-2 pb-2">Erro! A senha precisa ter no mínimo 5 caractéres!</p>
                     </div>
 
-                    <div class="flex text-[12px] justify-around w-full text-[#2F1D1A] mb-2">
-                        <a href="#" class="hover:underline text-[#2F1D1A]">Cadastrar novo usuário</a>
+                    <div class="flex text-[12px] justify-around w-full text-[#2F1D1A] mb-2 mt-2">
+                        <a id="register" href="#" class="hover:underline text-[#2F1D1A]">Cadastrar novo usuário</a>
                         <a href="#" class="hover:underline text-[#2F1D1A]">Esqueceu a senha?</a>
                     </div>
 
-                    <button id="loginBtn" class="rounded-[40px] px-20 py-2 bg-[#2F1D1A] hover:bg-[#C9B9B0] text-[#C9B9B0] hover:text-[#2F1D1A] hover:transform hover:scale-110 transition duration-500 cursor-pointer md:mt-7">Login</button>
+                    <button id="loginBtn" class="rounded-[40px] px-20 py-2 bg-[#2F1D1A] hover:bg-[#C9B9B0] text-[#C9B9B0] hover:text-[#2F1D1A] hover:transform hover:scale-110 transition duration-500 cursor-pointer mt-7">Login</button>
                 </div>
+            </div>
+
+            <!--Cadastro-->
+                <div id="registerWindow" class="flex flex-col justify-center items-center text-lg mb-16 hidden">
+                    <!--Titulo-->
+                    <h1 class="font-['Pacifico'] md:text-3xl text-2xl text-center mb-10 mt-3">Preencha os dados para efetuar seu cadastro!</h1>
+                    <!--Nome-->
+                    <div class="mb-10">
+                        <label for="nameRegister">Nome:</label>
+                        <input type="text" id="nameRegister" placeholder="Digite aqui..." class="rounded-lg outline-none ring-2 ring-gray-300 focus:ring-[#C9B9B0] ml-2">
+                        <p id="nameError"></p>
+                    </div>
+                    <!--E-mail-->
+                    <div class="mb-10">
+                        <label for="emailRegister">E-mail:</label>
+                        <input type="email" id="emailRegister" placeholder="Digite aqui..." class="rounded-lg outline-none ring-2 ring-gray-300 focus:ring-[#C9B9B0] ml-2">
+                        <p id="emailError"></p>
+                    </div>
+                    <!--Senha-->
+                    <div class="relative">
+                        <label for="passwordRegister">Senha:</label>
+                        <input type="password" id="passwordRegister" placeholder="Digite aqui..." class="rounded-lg outline-none ring-2 ring-gray-300 focus:ring-[#C9B9B0] ml-2">
+                        <div id="btnPasswordRegister"><i class="ri-eye-off-line text-xl font-semibold cursor-pointer absolute right-3 top-1/2 -translate-y-1/2 text-gray-600"></i></div>
+                    </div>
+                    <p id="passwordError"></p>
+                    <!--Confirmação de senha-->
+                    <div class="relative mt-10">
+                        <label for="confirmPasswordRegister">Senha:</label>
+                        <input type="password" id="confirmPasswordRegister" placeholder="Confirme sua senha..." class="rounded-lg outline-none ring-2 ring-gray-300 focus:ring-[#C9B9B0] ml-2">
+                        <div id="btnPasswordConfirmRegister"><i class="ri-eye-off-line text-xl font-semibold cursor-pointer absolute right-3 top-1/2 -translate-y-1/2 text-gray-600"></i></div>
+                    </div>
+                    <p id="confirmPasswordError"></p>
+
+                    <p id="backToLoginBtn" class="text-sm hover:underline mt-5 cursor-pointer">Voltar para o login</p>
+                    <!--Botão-->
+                    <button id="registerBtn" class="rounded-[40px] px-20 py-2 bg-[#2F1D1A] hover:bg-[#C9B9B0] text-[#C9B9B0] hover:text-[#2F1D1A] hover:transform hover:scale-110 transition duration-500 cursor-pointer mt-5">Cadastrar</button>
+                
             </div>
     </main>
 
-    <script src="../static/login.js"></script>
+    <script src="static/login.js"></script>
 </body>
 </html>
